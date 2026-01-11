@@ -104,47 +104,85 @@ export default function HomeScreen() {
       getInTouch: "Get In Touch",
       search: "Search tasks...",
       hello: "Hello",
+      taskDetails: "Task Details",
+      noDescription: "No description provided.",
+      dueDate: "Due Date",
+      close: "Close",
+      high: "High",
+      medium: "Medium",
+      low: "Low",
+      manageCategories: "Manage Categories",
+      updateTask: "Update Task",
+      addTask: "Add Task",
+      todayFilter: "Today",
+      upcomingFilter: "Upcoming",
+      pastFilter: "Past",
+      completedFilter: "Completed",
+      addTask: "Add Task",
+      todayFilter: "Today",
+      upcomingFilter: "Upcoming",
+      pastFilter: "Past",
+      completedFilter: "Completed",
+      allFilter: "All",
+      streakFull: "Day Streak", 
     },
     si: {
       greeting: 'ආයුබෝවන්',
-      appName: 'සිලෝන් Task',
-      todayGoal: "අද ඉලක්කය",
-      goal: 'ඉලක්කය',
-      stats: 'විස්තර',
+      appName: 'Ceylon Task',
+      todayGoal: "අද ටාගට් එක",
+      goal: 'ටාගට් එක',
+      stats: 'තත්ත්වෙ',
       today: 'අද',
-      overdue: 'ප්‍රමාදයි',
+      overdue: 'පරක්කුයි',
       next: 'ඊළඟ',
-      total: 'මුළු',
-      streak: 'දින දාමය',
-      todayTasks: "අද කාර්යයන්",
-      upcomingTasks: "ඉදිරි කාර්යයන්",
-      pastDueTasks: "ප්‍රමාද වූ කාර්යයන්",
-      completedTasks: "නිම කළ කාර්යයන්",
-      allTasks: "සියලුම කාර්යයන්",
-      tasksFound: "හමුවිය",
-      tasksTotal: "මුළු ගණන",
-      showOverdue: "ප්‍රමාද පෙන්වන්න",
-      showDone: "නිම කළ පෙන්වන්න",
-      viewAll: "සියල්ල බලන්න",
-      noTasks: "අද දිනට කාර්යයන් නොමැත",
-      newTask: "නව කාර්යයක්",
-      editTask: "කාර්යය වෙනස් කරන්න",
-      taskTitle: "මාතෘකාව",
-      enterTitle: "කාර්යයේ නම ඇතුලත් කරන්න...",
-      description: "විස්තරය (අවශ්‍ය නම්)",
-      enterDesc: "විස්තර ඇතුලත් කරන්න...",
-      category: "වර්ගය",
-      priority: "වැදගත්කම",
-      date: "දිනය",
-      create: "ඇතුලත් කරන්න",
-      update: "යාවත්කාලීන කරන්න",
-      deleteMsg: "ඔබට මෙම කාර්යය මකා දැමීමට අවශ්‍යද?",
-      cancel: "අවලංගු කරන්න",
-      delete: "මකන්න",
-      developedBy: "නිර්මාණය: dilushadnw",
-      getInTouch: "සම්බන්ධ වන්න",
-      search: "සොයන්න...",
+      total: 'ඔක්කොම',
+      streak: 'ස්ට්‍රීක් එක',
+      todayTasks: "අද කරන්න තියෙන වැඩ",
+      upcomingTasks: "ඉස්සරහට තියෙන වැඩ",
+      pastDueTasks: "මිස් වුනු වැඩ",
+      completedTasks: "ඉවර කරපු වැඩ",
+      allTasks: "ඔක්කොම වැඩ ටික",
+      tasksFound: "ක් හොයාගත්තා",
+      tasksTotal: "ක් තියනවා",
+      showOverdue: "පරක්කු ඒවා",
+      showDone: "ඉවර ඒවා",
+      viewAll: "ඔක්කොම",
+      noTasks: "මුකුත් නෑ",
+      newTask: "අලුත් වැඩේ මොකක්ද?",
+      editTask: "වැඩේ වෙනස් කරන්න",
+      taskTitle: "Task Name (වැඩේ නම)",
+      enterTitle: "මොකද්ද කරන්න තියෙන්නෙ?",
+      description: "Description (තවත් විස්තර තියනව නම් කියන්න)",
+      enterDesc: "පොඩි නෝට් එකක් දාන්න...",
+      category: "Category (කැටගරිය)",
+      priority: "Priority (කොච්චර වැදගත්ද ඔයාට මේක)",
+      date: "Date (කවදටද)",
+      create: "ලිස්ට් එකට දාන්න",
+      update: "වෙනස් කරන්න",
+      deleteMsg: "මේක ලිස්ට් එකෙන් අයින් කරන්නද?",
+      cancel: "එපා",
+      delete: "අයින් කරන්න",
+      developedBy: "හැදුවේ: dilushadnw",
+      getInTouch: "කතා කරන්න",
+      search: "වැඩ හොයන්න...",
       hello: "හායි",
+      taskDetails: "වැඩේ ගැන විස්තර",
+      noDescription: "විස්තරයක් දාල නෑ.",
+      dueDate: "ඉවර කරන්න ඕන දවස",
+      close: "වහන්න",
+      high: "High (ගොඩාක්)",
+      medium: "Medium (සාමන්‍යයි)",
+      low: "Low (චුට්ටක්)",
+      manageCategories: "කැටගරි හදන්න",
+      updateTask: "වෙනස් කරන්න",
+      addTask: "දාන්න",
+      todayFilter: "Today (අද)",
+      upcomingFilter: "Upcoming (ඉදිරියට)",
+      pastFilter: "Past (පසුගිය)",
+      completedFilter: "Completed (අවසන් කළ)",
+      allFilter: "All (ඔක්කොම)",
+      streakFull: "ක සාර්ථකත්වය", 
+      streakPrefix: "දින" 
     }
   };
 
@@ -583,7 +621,9 @@ export default function HomeScreen() {
             {isDashboardExpanded && streak > 0 && (
               <View style={[styles.streakBadge, { backgroundColor: '#FFF7ED' }]}>
                 <Ionicons name="flame" size={16} color="#F97316" />
-                <Text style={styles.streakText}>{streak} {t.streak}</Text>
+                <Text style={styles.streakText}>
+                  {language === 'si' ? `${t.streakPrefix || ''} ${streak}${t.streakFull}` : `${streak} ${t.streakFull}`}
+                </Text>
               </View>
             )}
           </View>
@@ -682,7 +722,12 @@ export default function HomeScreen() {
                 <Text style={[
                   styles.quickActionText,
                   { color: isActive ? '#fff' : theme.textSecondary }
-                ]}>{language === 'si' && filter === 'Today' ? t.today : filter}</Text>
+                ]}>
+                  {filter === 'Today' ? t.todayFilter : 
+                   filter === 'Upcoming' ? t.upcomingFilter :
+                   filter === 'Past' ? t.pastFilter :
+                   filter === 'Completed' ? t.completedFilter : t.allFilter}
+                </Text>
                 {count > 0 && (
                   <View style={[styles.filterBadge, { backgroundColor: isActive ? 'rgba(255,255,255,0.2)' : theme.border }]}>
                     <Text style={[styles.filterBadgeText, { color: isActive ? '#fff' : theme.textSecondary }]}>{count}</Text>
@@ -723,7 +768,7 @@ export default function HomeScreen() {
                   style={[styles.toggleBtn, { backgroundColor: showCompletedInToday ? theme.primary : (isDarkMode ? '#334155' : '#F3F4F6') }]} 
                   onPress={() => setShowCompletedInToday(!showCompletedInToday)}
                 >
-                  <Text style={[styles.toggleText, { color: showCompletedInToday ? '#fff' : theme.textSecondary }]}>Show Done</Text>
+                  <Text style={[styles.toggleText, { color: showCompletedInToday ? '#fff' : theme.textSecondary }]}>{t.showDone}</Text>
                 </TouchableOpacity>
               )}
               {selectedFilter === 'Upcoming' && (
@@ -731,7 +776,7 @@ export default function HomeScreen() {
                   style={[styles.toggleBtn, { backgroundColor: showCompletedInUpcoming ? theme.primary : (isDarkMode ? '#334155' : '#F3F4F6') }]} 
                   onPress={() => setShowCompletedInUpcoming(!showCompletedInUpcoming)}
                 >
-                  <Text style={[styles.toggleText, { color: showCompletedInUpcoming ? '#fff' : theme.textSecondary }]}>Show Done</Text>
+                  <Text style={[styles.toggleText, { color: showCompletedInUpcoming ? '#fff' : theme.textSecondary }]}>{t.showDone}</Text>
                 </TouchableOpacity>
               )}
               <TouchableOpacity style={[styles.viewAllButton, { backgroundColor: isDarkMode ? theme.primary : '#ECFDF5' }]}>
@@ -745,7 +790,7 @@ export default function HomeScreen() {
           {filteredTasks.length === 0 ? (
             <View style={styles.emptyContainer}>
               <Ionicons name="documents-outline" size={48} color={theme.textSecondary} style={{ opacity: 0.5 }} />
-              <Text style={[styles.emptyText, { color: theme.textSecondary }]}>No tasks found for this day</Text>
+              <Text style={[styles.emptyText, { color: theme.textSecondary }]}>{t.noTasks}</Text>
             </View>
           ) : (
             filteredTasks.map((task, index) => (
@@ -892,7 +937,7 @@ export default function HomeScreen() {
             <Pressable style={[styles.modalContent, { backgroundColor: theme.cardBg }]}>
               <View style={styles.modalHeader}>
                 <Text style={[styles.modalTitle, { color: theme.text }]}>
-                  {editingTask ? 'Edit Task' : 'New Task'}
+                  {editingTask ? t.editTask : t.newTask}
                 </Text>
                 <TouchableOpacity onPress={resetForm}>
                   <Ionicons name="close" size={24} color={theme.textSecondary} />
@@ -900,7 +945,7 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.inputContainer}>
-                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>Task Title</Text>
+                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>{t.taskTitle}</Text>
                 <TextInput
                   style={[styles.modalInput, { backgroundColor: theme.bg, color: theme.text, borderColor: theme.border }]}
                   placeholder="Enter task name..."
@@ -912,7 +957,7 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.inputContainer}>
-                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>Description (Optional)</Text>
+                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>{t.description}</Text>
                 <TextInput
                   style={[styles.modalInput, styles.textArea, { backgroundColor: theme.bg, color: theme.text, borderColor: theme.border }]}
                   placeholder="Enter details..."
@@ -926,7 +971,7 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.inputContainer}>
-                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>Category</Text>
+                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>{t.category}</Text>
                 <View style={styles.categoryPicker}>
                   {categories.map((cat) => (
                     <TouchableOpacity
@@ -950,11 +995,11 @@ export default function HomeScreen() {
                   onPress={() => setIsCategoryModalVisible(true)}
                 >
                   <Ionicons name="settings-outline" size={16} color={theme.primary} />
-                  <Text style={[styles.manageCategoriesText, { color: theme.primary }]}>Manage Categories</Text>
+                  <Text style={[styles.manageCategoriesText, { color: theme.primary }]}>{t.manageCategories}</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.inputContainer}>
-                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>Date</Text>
+                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>{t.date}</Text>
                 <TouchableOpacity 
                   style={[styles.modalInput, { flexDirection: 'row', alignItems: 'center', backgroundColor: theme.bg, borderColor: theme.border }]}
                   onPress={() => setIsDatePickerVisible(true)}
@@ -989,7 +1034,7 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.inputContainer}>
-                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>Priority</Text>
+                <Text style={[styles.inputLabel, { color: theme.textSecondary }]}>{t.priority}</Text>
                 <View style={styles.priorityPicker}>
                   {['low', 'medium', 'high'].map((prio) => (
                     <TouchableOpacity
@@ -1008,7 +1053,7 @@ export default function HomeScreen() {
                         { color: theme.textSecondary },
                         taskPriority === prio && { color: '#fff' }
                       ]}>
-                        {prio.charAt(0).toUpperCase() + prio.slice(1)}
+                        {t[prio as keyof typeof t] || prio.charAt(0).toUpperCase() + prio.slice(1)}
                       </Text>
                     </TouchableOpacity>
                   ))}
@@ -1024,7 +1069,7 @@ export default function HomeScreen() {
                       resetForm();
                     }}
                   >
-                    <Text style={styles.submitButtonText}>Delete</Text>
+                    <Text style={styles.submitButtonText}>{t.delete}</Text>
                   </TouchableOpacity>
                 )}
                 <TouchableOpacity 
@@ -1032,7 +1077,7 @@ export default function HomeScreen() {
                   onPress={handleAddTask}
                 >
                   <Text style={styles.submitButtonText}>
-                    {editingTask ? 'Update Task' : 'Add Task'}
+                    {editingTask ? t.updateTask : t.addTask}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -1099,7 +1144,7 @@ export default function HomeScreen() {
         <Pressable style={styles.modalOverlay} onPress={() => setSelectedTaskDetail(null)}>
           <View style={[styles.modalContent, { backgroundColor: theme.cardBg }]}>
             <View style={styles.modalHeader}>
-              <Text style={[styles.modalTitle, { color: theme.text }]}>Task Details</Text>
+              <Text style={[styles.modalTitle, { color: theme.text }]}>{t.taskDetails}</Text>
               <TouchableOpacity onPress={() => setSelectedTaskDetail(null)}>
                 <Ionicons name="close" size={24} color={theme.textSecondary} />
               </TouchableOpacity>
@@ -1124,14 +1169,14 @@ export default function HomeScreen() {
                 </View>
 
                 <View style={[styles.detailSection, { borderTopWidth: 1, borderTopColor: theme.border }]}>
-                  <Text style={[styles.detailLabel, { color: theme.textSecondary }]}>Description</Text>
+                  <Text style={[styles.detailLabel, { color: theme.textSecondary }]}>{t.description}</Text>
                   <Text style={[styles.detailDescription, { color: theme.text }]}>
-                    {selectedTaskDetail.description || 'No description provided.'}
+                    {selectedTaskDetail.description || t.noDescription}
                   </Text>
                 </View>
 
                 <View style={styles.detailSection}>
-                  <Text style={[styles.detailLabel, { color: theme.textSecondary }]}>Due Date</Text>
+                  <Text style={[styles.detailLabel, { color: theme.textSecondary }]}>{t.dueDate}</Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 4 }}>
                     <Ionicons name="calendar-outline" size={18} color={theme.primary} style={{ marginRight: 8 }} />
                     <Text style={[styles.detailDate, { color: theme.text }]}>{getDayLabel(selectedTaskDetail.date)}</Text>
@@ -1144,7 +1189,7 @@ export default function HomeScreen() {
               style={[styles.submitButton, { backgroundColor: theme.primary, marginTop: 20 }]}
               onPress={() => setSelectedTaskDetail(null)}
             >
-              <Text style={styles.submitButtonText}>Close</Text>
+              <Text style={styles.submitButtonText}>{t.close}</Text>
             </TouchableOpacity>
           </View>
         </Pressable>
