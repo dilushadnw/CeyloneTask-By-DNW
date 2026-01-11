@@ -248,3 +248,23 @@ export const loadLanguagePreference = async (): Promise<'en' | 'si'> => {
     return 'en';
   }
 };
+
+const QUOTE_KEY = '@DnwTaskMaster:user_quote';
+
+export const saveUserQuote = async (quote: string): Promise<void> => {
+  try {
+    await AsyncStorage.setItem(QUOTE_KEY, quote);
+  } catch (error) {
+    console.error('Error saving user quote:', error);
+  }
+};
+
+export const loadUserQuote = async (): Promise<string | null> => {
+  try {
+    const value = await AsyncStorage.getItem(QUOTE_KEY);
+    return value;
+  } catch (error) {
+    console.error('Error loading user quote:', error);
+    return null;
+  }
+};

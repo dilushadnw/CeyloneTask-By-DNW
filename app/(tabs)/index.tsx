@@ -6,17 +6,20 @@ import {
     loadThemePreference,
     loadUIPrefs,
     loadUserName,
+    loadUserQuote,
     saveCategories,
     saveLanguagePreference,
     saveTasks,
     saveThemePreference,
     saveUIPrefs,
-    saveUserName
+    saveUserName,
+    saveUserQuote
 } from '@/utils/storage';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useCallback, useEffect, useState } from 'react';
 import {
     Alert,
+    Image,
     KeyboardAvoidingView,
     Linking,
     Modal,
@@ -62,6 +65,9 @@ export default function HomeScreen() {
   const [viewDate, setViewDate] = useState(new Date());
   const [isDashboardExpanded, setIsDashboardExpanded] = useState(false);
   const [language, setLanguage] = useState<'en' | 'si'>('en');
+  const [userQuote, setUserQuote] = useState<string | null>(null);
+  const [isEditingQuote, setIsEditingQuote] = useState(false);
+  const [tempQuote, setTempQuote] = useState('');
 
   const translations = {
     en: {
@@ -113,18 +119,10 @@ export default function HomeScreen() {
       low: "Low",
       manageCategories: "Manage Categories",
       updateTask: "Update Task",
-      addTask: "Add Task",
-      todayFilter: "Today",
-      upcomingFilter: "Upcoming",
-      pastFilter: "Past",
-      completedFilter: "Completed",
-      addTask: "Add Task",
-      todayFilter: "Today",
-      upcomingFilter: "Upcoming",
-      pastFilter: "Past",
       completedFilter: "Completed",
       allFilter: "All",
       streakFull: "Day Streak", 
+      quote: "Welcome! Let's crush your day perfectly!",
     },
     si: {
       greeting: 'ආයුබෝවන්',
@@ -182,7 +180,8 @@ export default function HomeScreen() {
       completedFilter: "Completed (අවසන් කළ)",
       allFilter: "All (ඔක්කොම)",
       streakFull: "ක සාර්ථකත්වය", 
-      streakPrefix: "දින" 
+      streakPrefix: "දින",
+      quote: "අද දවස සුපිරියටම ගොඩදාමු!",
     }
   };
 
@@ -230,11 +229,13 @@ export default function HomeScreen() {
     const isDark = await loadThemePreference();
     const uiPrefs = await loadUIPrefs();
     const lang = await loadLanguagePreference();
+    const storedQuote = await loadUserQuote();
     
     setUserName(name);
     setCategories(storedCategories);
     setIsDarkMode(isDark);
     setLanguage(lang);
+    if (storedQuote) setUserQuote(storedQuote);
     
     // Load UI Prefs
     setShowOverdueInToday(uiPrefs.showOverdueInToday);
@@ -530,32 +531,72 @@ export default function HomeScreen() {
       <View style={[styles.header, { backgroundColor: theme.headerBg }]}>
         <View style={styles.headerOverlay} />
         <View style={styles.headerContent}>
-          <View style={{ flex: 1 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-              {isEditingName ? (
+          <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <Image 
+              source={require('@/assets/images/logo.jpg')} 
+              style={{ width: 50, height: 50, borderRadius: 25, borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.3)' }} 
+            />
+            <View style={{ flex: 1 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                {isEditingName ? (
+                  <TextInput
+                    style={[styles.nameInput, { color: '#fff' }]}
+                    value={userName}
+                    onChangeText={setUserName}
+                    onBlur={() => {
+                      setIsEditingName(false);
+                      saveUserName(userName);
+                    }}
+                    autoFocus
+                    maxLength={15}
+                  />
+                ) : (
+                  <TouchableOpacity 
+                    onPress={() => setIsEditingName(true)} 
+                    style={styles.greetingTouch}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={styles.greeting}>{t.greeting}, {userName} 🙏</Text>
+                    <Ionicons name="pencil-sharp" size={14} color="rgba(255,255,255,0.7)" />
+                  </TouchableOpacity>
+                )}
+              </View>
+              <Text style={styles.headerTitle}>{t.appName}</Text>
+              {isEditingQuote ? (
                 <TextInput
-                  style={[styles.nameInput, { color: '#fff' }]}
-                  value={userName}
-                  onChangeText={setUserName}
+                  style={{ 
+                    color: 'rgba(255,255,255,0.9)', 
+                    fontSize: 13, 
+                    fontWeight: '500', 
+                    marginTop: 2,
+                    borderBottomWidth: 1,
+                    borderBottomColor: 'rgba(255,255,255,0.3)',
+                    paddingVertical: 2
+                  }}
+                  value={tempQuote}
+                  onChangeText={setTempQuote}
                   onBlur={() => {
-                    setIsEditingName(false);
-                    saveUserName(userName);
+                    setIsEditingQuote(false);
+                    setUserQuote(tempQuote);
+                    saveUserQuote(tempQuote);
                   }}
                   autoFocus
-                  maxLength={15}
+                  returnKeyType="done"
                 />
               ) : (
                 <TouchableOpacity 
-                  onPress={() => setIsEditingName(true)} 
-                  style={styles.greetingTouch}
+                  onPress={() => {
+                    setTempQuote(userQuote || t.quote);
+                    setIsEditingQuote(true);
+                  }}
                   activeOpacity={0.7}
                 >
-                  <Text style={styles.greeting}>{t.greeting}, {userName} 🙏</Text>
-                  <Ionicons name="pencil-sharp" size={14} color="rgba(255,255,255,0.7)" />
+                  <Text style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, fontWeight: '500', marginTop: 2 }}>
+                    {userQuote || t.quote}
+                  </Text>
                 </TouchableOpacity>
               )}
             </View>
-            <Text style={styles.headerTitle}>{t.appName}</Text>
           </View>
           <View style={{ flexDirection: 'row', gap: 8 }}>
             <TouchableOpacity 
@@ -876,8 +917,12 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.attributionContainer}>
+          <Image 
+            source={require('@/assets/images/logo.jpg')} 
+            style={{ width: 60, height: 60, borderRadius: 30, marginBottom: 10, opacity: 0.8 }} 
+          />
           <Text style={[styles.attributionText, { color: theme.textSecondary }]}>
-            DnwTaskMaster v1.0
+            Ceylon Task By DNW
           </Text>
           <Text style={[styles.creatorText, { color: theme.primary }]}>
             Developed by dilushadnw
